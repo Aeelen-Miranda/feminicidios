@@ -1,3 +1,4 @@
+
 import dash
 import matplotlib.pyplot as plt 
 import dash_bootstrap_components as dbc
@@ -831,8 +832,8 @@ body = html.Div([
 
 app.layout = html.Div([body])
 
-from application.dash import app
-from settings import config
+#from application.dash import app
+#from settings import config
 
 if __name__ == "__main__":
     app.run_server()

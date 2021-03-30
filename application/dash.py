@@ -1,4 +1,3 @@
-
 import dash
 import matplotlib.pyplot as plt 
 import dash_bootstrap_components as dbc
@@ -35,7 +34,7 @@ d2 = today.strftime("Fecha de actualización : %d-%m-%Y")
 
 #os.chdir(r"C:\Users\PRIME\AnacondaProjects\Project_curso\\")
 
-delitos = pd.read_csv("https://raw.githubusercontent.com/fdealbam/feminicidios/main/application/feminicidios2015_2020.csv?raw=true")
+delitos = pd.read_csv("https://raw.githubusercontent.com/fdealbam/feminicidios/main/application/feminicidios2015_2021.csv?raw=true")
 delitos.drop('Unnamed: 0',1, inplace=True)
 
 delitos.groupby(['Año','Entidad','Tipo de delito'])['Enero', 
@@ -115,7 +114,7 @@ femi15_21 = ff[[
  'Enero20','Febrero20','Marzo20','Abril20','Mayo20','Junio20','Julio20',
  'Agosto20','Septiembre20','Octubre20','Noviembre20','Diciembre20',
     
- 'Enero21',#'Febrero21','Marzo21','Abril21','Mayo21','Junio21','Julio21',
+ 'Enero21','Febrero21'#,'Marzo21','Abril21','Mayo21','Junio21','Julio21',
 # 'Agosto21','Septiembre21','Octubre21','Noviembre21','Diciembre21'
              ]]
 
@@ -141,10 +140,10 @@ femi15_21['Total2020']= femi15_21[[ 'Enero20', 'Febrero20', 'Marzo20', 'Abril20'
                                'Junio20', 'Julio20', 'Agosto20', 'Septiembre20', 'Octubre20',
                                'Noviembre20', 'Diciembre20',]].sum(axis=1)
 
-femi15_21['Total2021']= femi15_21[[ 'Enero21',#'Febrero21', 'Marzo21', 'Abril21', 'Mayo21',
+femi15_21['Total2021']= femi15_21[[ 'Enero21','Febrero21'#, 'Marzo21', 'Abril21', 'Mayo21',
                                    #'Junio21','Julio21','Agosto21','Septiembre21','Octubre21',
                                    #'Noviembre21','Diciembre21'
-                                  ]]#.sum(axis=1)
+                                  ]].sum(axis=1)
 
 
 #identificadores
@@ -155,7 +154,6 @@ conf_2018= femi15_21.Total2018.sum()
 conf_2019= femi15_21.Total2019.sum()
 conf_2020= femi15_21.Total2020.sum()
 conf_2021= femi15_21.Total2021.sum()
-
 
 
 
@@ -178,7 +176,7 @@ pagra = ff[[
  'Enero20', 'Febrero20', 'Marzo20', 'Abril20', 'Mayo20', 'Junio20', 'Julio20', 'Agosto20',
     'Septiembre20','Octubre20', 'Noviembre20', 'Diciembre20',
 
- 'Enero21',# 'Febrero21', 'Marzo21', 'Abril21', 'Mayo21', 'Junio21', 'Julio21', 'Agosto21',
+ 'Enero21', 'Febrero21'#, 'Marzo21', 'Abril21', 'Mayo21', 'Junio21', 'Julio21', 'Agosto21',
   #  'Septiembre21','Octubre21','Noviembre21','Diciembre21'
             ]]
 
@@ -243,7 +241,6 @@ fem_filter1[['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto',
     
 fem_filter1['Total']=fem_filter1[['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto',
                                  'Septiembre','Octubre','Noviembre','Diciembre']].sum(1)
-
 
 
 
@@ -369,24 +366,24 @@ patabla4a = pd.DataFrame (patabla4, columns = ['Mpio','Casos'])
 
 ######################################################### Graf. Tasas de feminicidios por entidad 2015-2020
 
-junto1 = pd.read_csv('https://raw.githubusercontent.com/fdealbam/feminicidios/main/application/POB_15_20.csv')
-fem15_20 = femi15_21[['Entidad', 'Total2015', 'Total2016', 'Total2017',
-       'Total2018', 'Total2019', 'Total2020']]
+junto1 = pd.read_csv('https://raw.githubusercontent.com/fdealbam/feminicidios/main/application/POB_15_21.csv')
+fem15_21 = femi15_21[['Entidad', 'Total2015', 'Total2016', 'Total2017',
+       'Total2018', 'Total2019', 'Total2020', 'Total2021']]
 
-junto15_20 = fem15_20.merge(junto1,right_on='NOM_ENT',left_on='Entidad')
-junto15_20["Entidad"].replace('Veracruz de Ignacio de la Llave','Veracruz' , inplace=True)
+junto15_21 = fem15_21.merge(junto1,right_on='NOM_ENT',left_on='Entidad')
+junto15_21["Entidad"].replace('Veracruz de Ignacio de la Llave','Veracruz' , inplace=True)
 
-junto15_20['Totfem1520']=junto15_20[['Total2015', 'Total2016', 'Total2017', 'Total2018','Total2019', 'Total2020']].sum(1)
-junto15_20['Totpob1520']=junto15_20[['POB15', 'POB16', 'POB17', 'POB18','POB19', 'POB20']].sum(1)
-junto15_20['Tasa1520']=((junto15_20.Totfem1520/junto15_20.Totpob1520)*100000).round(2)
+junto15_21['Totfem1521']=junto15_21[['Total2015', 'Total2016', 'Total2017', 'Total2018','Total2019', 'Total2020', 'Total2021']].sum(1)
+junto15_21['Totpob1521']=junto15_21[['POB15', 'POB16', 'POB17', 'POB18','POB19', 'POB20', 'POB21']].sum(1)
+junto15_21['Tasa1521']=((junto15_21.Totfem1521/junto15_21.Totpob1521)*100000).round(2)
 
-TasasFem15_20index=junto15_20[['Entidad','Totfem1520','Totpob1520','Tasa1520']].sort_values('Tasa1520',ascending=False)
+TasasFem15_21index=junto15_21[['Entidad','Totfem1521','Totpob1521','Tasa1521']].sort_values('Tasa1521',ascending=False)
 
 
 ######################################################### Grafica Totales
 
 graf_tasafem = go.Figure()
-graf_tasafem.add_trace(go.Bar(x=TasasFem15_20index['Entidad'],y=TasasFem15_20index['Tasa1520'],
+graf_tasafem.add_trace(go.Bar(x=TasasFem15_21index['Entidad'],y=TasasFem15_21index['Tasa1521'],
                 marker_color='sandybrown'  # cambiar nuemeritos de rgb
                 ))
 
@@ -410,10 +407,10 @@ graf_tasafem.update_layout(
 
 ######################################################### Grafica Total
 
-TasasTot15_20index=junto15_20[['Entidad','Totfem1520','Totpob1520','Tasa1520']].sort_values('Totfem1520',ascending=False)
+TasasTot15_21index=junto15_21[['Entidad','Totfem1521','Totpob1521','Tasa1521']].sort_values('Totfem1521',ascending=False)
 
 graf_totfem = go.Figure()
-graf_totfem.add_trace(go.Bar(x=TasasTot15_20index['Entidad'],y=TasasTot15_20index['Totfem1520'],
+graf_totfem.add_trace(go.Bar(x=TasasTot15_21index['Entidad'],y=TasasTot15_21index['Totfem1521'],
                 marker_color='indianred'  # cambiar nuemeritos de rgb
                 ))
 
@@ -479,12 +476,8 @@ body = html.Div([
                         width={'size': 3,  "offset":1 }),
             ]),
                
-       html.Hr(),
-       html.Hr(),
-       html.Hr(),
-       html.Hr(),
-       html.Hr(),
-       html.Hr(),
+       html.Br(),
+       html.Br(),
     
     
 #cintillo 0
@@ -496,9 +489,7 @@ body = html.Div([
                         width={'size': 8,  "offset":1 }),
             ]),
 
-       html.Hr(),
-       html.Hr(),
-       html.Hr(),
+      html.Br(),
     
      dbc.Row(
            [
@@ -531,7 +522,7 @@ body = html.Div([
                dbc.Col(dbc.CardImg(src="https://github.com/Aeelen-Miranda/feminicidios/blob/main/application/static/mapa2020.jpeg?raw=true")),
            ]),
 # Cintillo párrafos
-       html.Hr(),
+       html.Br(),
     
       dbc.Row([
                dbc.Col(dbc.Container([
@@ -601,15 +592,19 @@ body = html.Div([
       ]),
                 
     
-       html.Hr(),
-       html.Hr(),
+       html.Br(),
+       html.Br(),
        
 #---------Grafica mensual
      dbc.Row(
            [
                dbc.Col(html.H1(["Casos ", 
-                                dbc.Badge("mensuales", color="info", className="mr-1")]),
-                        width={'size': 8,  "offset":1 }),
+                       dbc.Badge("mensuales", color="info", className="mr-1")]), 
+                                       width={'size': 11,  "offset":1 })]),
+       dbc.Row([        
+               dbc.Col(html.H5("(hasta febrero 2021)"),
+                                       width={ 'size': 3, "offset":1 }),
+
             ]),
    
     dbc.Row(
@@ -618,9 +613,8 @@ body = html.Div([
         ]),
 
       
-       html.Hr(),
-       html.Hr(),
-    
+      html.Br(),
+    html.Br(),
 ##Cintillo mapas y ranking
 
     #títulos
@@ -632,9 +626,8 @@ body = html.Div([
                         width={'size': 10,  "offset":1 }),
             ]),
 
-       html.Hr(),
-       html.Hr(),
-       html.Hr(),
+     html.Br(),
+    html.Br(),
     
      dbc.Row(
            [
@@ -675,77 +668,151 @@ body = html.Div([
                       #width=4,lg={'size': 3,  "offset": 3, }
                       ),
            ], no_gutters=True),
-       #html.Hr(),
+       
 
-    ################################################################# tablas MIUNICIPIOS ranking 1-2    
+    #################################################################  MUNICIPIOS ranking    
 
-# tablas 1-2    
-    
-#    dbc.Row([
-#               dbc.Col(dbc.Table.from_dataframe(patabla1a, 
-#                        bordered="success", size=422, striped=True), 
-#                        width=4, lg={'size': 3,  "offset": 2, }),
-#        
-#               dbc.Col(dbc.Table.from_dataframe(patabla2a,
-#                        bordered="success", size=422, striped=True), 
-#                        width=4, lg={'size': 3,  "offset": 3, }),
-#            ], justify="center", no_gutters=False),
-#
-#       html.Hr(),
-#       html.Hr(),
-#       html.Hr(),
-#       html.Hr(),
-#       html.Hr(),
-#       html.Hr(),
-#       html.Hr(),
-#       html.Hr(),
-#    
-    
+    dbc.Row([
+               dbc.Col(dbc.Container([
+                       html.P(
+                           "Los 10 Municipios con mayor número de casos de feminicidios son:"
+                           " Ecatepec de Morelos (56), Chimalhuacán (35), Nezahualcóyotl (31)"
+                           ", Toluca (27), Naucalpan de Juárez (22), Ixtapaluca (22), Zumpango"
+                           "(21), Tecámac (19), Cuautitlán Izcalli (19), y Valle de Chalco"
+                           "Solidaridad (16).",
+                    className="top",)
+                                ], fluid=True)
+                       
+                      ),
+          dbc.Col(dbc.Jumbotron([
+                   dbc.Container([
+                       html.P(
+                           "Los 10 Municipios con mayor número de casos de feminicidios son:"
+                           " Veracruz (49), Xalapa (42), Coatzacoalcos (25), Córdoba (24), "
+                           "Poza Rica de Hidalgo (17), Tuxpan (13), Papantla (12), Tierra "
+                           "Blanca (11), Minatitlán (11), y San Andrés Tuxtla (11).",
+                    className="top")
+                                ], fluid=True)
+                                    ], fluid=True)
+                      ),
+          dbc.Col(
+                   dbc.Container([
+                       html.P(
+                           "Los 10 Municipios con mayor número de casos de feminicidios son:"
+                           " Iztapalapa (68), Gustavo A. Madero (37), Tlalpan (35), Cuauhtémoc"
+                           "(34), Xochimilco (25), Miguel Hidalgo (19), Álvaro Obregón (17),"
+                           " Tláhuac (16), Coyoacán (14), y Venustiano Carranza (14).",
+                    className="top")
+                                ], fluid=True)
+                                    )
+                      ,
+          dbc.Col(dbc.Jumbotron([
+                   dbc.Container([
+                       html.P(
+                           "Los 10 Municipios con mayor número de casos de feminicidios son:"
+                           " Guadalajara (51), Tlajomulco de Zúñiga (38), Zapopan (34), "
+                           "El Salto (24), Tonalá (17), Puerto Vallarta (10), Ocotlán (6),"
+                           " Tequila (6), Mezquitic (6), y Ixtlahuacán de los Membrillos (6).",
+                    className="top")
+                                ], fluid=True)
+                                    ], fluid=True)
+                      ),
+      ]),
+
+############################################  MUNICIPIOS ranking (OPCION  2)
+    dbc.Row([
+               dbc.Col(dbc.Container([
+                       html.P(
+                           "Ecatepec de Morelos (56)"
+                           "Chimalhuacán (35)"
+                           "Nezahualcóyotl (31)"
+                           "Toluca (27)"
+                           "Naucalpan de Juárez (22)"
+                           "Ixtapaluca (22)"
+                           "Zumpango (21)"
+                           "Tecámac (19)"
+                           "Cuautitlán Izcalli (19)"
+                           "Valle de Chalco Solidaridad (16)",
+                    className="top",)
+                                ],)
+                       
+                      ),
+          dbc.Col(dbc.Jumbotron([
+                   dbc.Container([
+                       html.P(
+                           "Veracruz (49)"
+                           "Xalapa (42)"
+                           "Coatzacoalcos (25)"
+                           "Córdoba (24)"
+                           "Poza Rica de Hidalgo (17)"
+                           "Tuxpan (13)"
+                           "Papantla (12)"
+                           "Tierra Blanca (11)"
+                           "Minatitlán (11)"
+                           "San Andrés Tuxtla (11)",
+                    className="top")
+                                ], )
+                                    ], )
+                      ),
+          dbc.Col(
+                   dbc.Container([
+                       html.P(
+                           "Iztapalapa (68)"
+                           "Gustavo A. Madero (37)"
+                           "Tlalpan (35)"
+                           "Cuauhtémoc (34)"
+                           "Xochimilco (25)"
+                           "Miguel Hidalgo (19)"
+                           "Álvaro Obregón (17)"
+                           "Tláhuac (16)"
+                           "Coyoacán (14)"
+                           "Venustiano Carranza (14)",
+                    className="top")
+                                ],)
+                                    )
+                      ,
+          dbc.Col(dbc.Jumbotron([
+                   dbc.Container([
+                       html.P(
+                           "Guadalajara (51)"
+                           "Tlajomulco de Zúñiga (38)"
+                           "Zapopan (34)"
+                           "El Salto (24)"
+                           "Tonalá (17)"
+                           "Puerto Vallarta (10)"
+                           "Ocotlán (6)"
+                           "Tequila (6)"
+                           "Mezquitic (6)"
+                           "Ixtlahuacán de los Membrillos (6)",
+                    className="top")
+                                ], )
+                                    ], )
+                      ),
+      ]),
+  
     dbc.Row([
                
            ]),
    
     
 # Cintillo 3
-    
-# tablas 3-4    
-#    dbc.Row([
-#               dbc.Col(dbc.Table.from_dataframe(patabla3a,
-#                        bordered="success", size=422, striped=True), 
-#                        width=4, lg={'size': 3,  "offset": 2, }),
-#        
-#               dbc.Col(dbc.Table.from_dataframe(patabla4a,
-#                        bordered="success", size=422, striped=True), 
-#                        width=4, lg={'size': 3,  "offset": 3, }),
-#            ], justify="center", no_gutters=False),
-##
- #      html.Hr(),
- #      html.Hr(),
- #      html.Hr(),
- #      html.Hr(),
- #      html.Hr(),
- #      html.Hr(),
- #      html.Hr(),
-       html.Hr(),
-       html.Hr(),
-       html.Hr(),
+ html.Br(),
+    html.Br(),
        
 #---------Grafica por entidad
      dbc.Row(
            [
                dbc.Col(html.H1([dbc.Badge("Comparativo", color="info", className="mr-1"),
-                               " entre total de casos acumulados y tasas (por entidad)"]),
+                               " entre casos acumulados & tasas "]),
                        width={'size': 10,  "offset":1 }),
             ]),
 
-       html.Hr(),
-       html.Hr(),
-       html.Hr(),
+      html.Br(),
     
     dbc.Row(
            [
                dbc.Col(html.H4("Total acumulado por entidad"),
-                        width=2,lg={'size': 3,  "offset": 1, }),
+                        width=2,lg={'size': 4,  "offset": 1, }),
 
                dbc.Col(html.H4("Tasa por entidad"),
                        width=1, lg={'size': 3,  "offset": 4, }),                     #size=12
@@ -761,12 +828,9 @@ body = html.Div([
                    #lg={'size': 5,  "offset": 1,}),
         ], justify="end", no_gutters=True,),
 
-       html.Hr(),
-       html.Hr(),
-       html.Hr(),
-       html.Hr(),
-       html.Hr(),
-       html.Hr(),
+       html.Br(),
+    html.Br(),
+    
     
 
 # nuevo
@@ -796,7 +860,7 @@ body = html.Div([
                     "posicionamiento partidista, personal o institucional, mucho menos opinión o postura alguna "
                     "sobre el fenómeno. ",
                     className="lead"),
-                html.Hr(),
+                html.Br(),
                 html.H5("Metodología "),
                 html.P(
                     "Esta información fue tratada con el lenguaje de programación Python y varias de las librerías "
@@ -832,8 +896,8 @@ body = html.Div([
 
 app.layout = html.Div([body])
 
-#from application.dash import app
-#from settings import config
+from application.dash import app
+from settings import config
 
 if __name__ == "__main__":
     app.run_server()

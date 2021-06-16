@@ -1,5 +1,6 @@
 
 
+
 # feminicidios
 
 import dash
@@ -886,22 +887,43 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes. LUX], server=server)
 
 body = html.Div([
 # Cintillo 000
+    
+   html.Br(),
+    
+   dbc.Row([
+                                    #https://github.com/fdealbam/CamaraDiputados/blob/b11ef31e8e0f73e1a4a06ce60402563e1bd0122e/application/static/logocamara.jfif
+           dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/ce2cda9ccf7732861b8494b36562ebe9c8c642a6/application/static/logo%20cesopycamara.jpeg?raw=true"),
+                        width=5, md={'size': 2,  "offset": 2, }),
+            
+           dbc.Col(html.H5(" Centro de Estudios Sociales y de Opinión Pública," 
+                           " Cámara de Diputados"
+                           " México, 2021 "),
+                  width={'size': 3, 'offset': 0}),
+               ], justify="end",),
+            
+   
+   
+    html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+    
+    
         dbc.Row(
            [
-               dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/CamaraDiputados/blob/main/application/static/logocamara.jfif?raw=true"),
-                        width={'size': 1,  "offset": 1}),
-               dbc.Col(html.H1("Feminicidios en México (2015-2020)"),
-                        width={'size' : "auto", "offset": 0}),
+               #dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/CamaraDiputados/blob/main/application/static/logocamara.jfif?raw=true"),
+               #         width={'size': 1,  "offset": 1}),
+               dbc.Col(html.P("Feminicidios y decesos femeninos"),
+                        style={"font-size": 86, "text-align": "center"}),
            ], justify= "start"),
 
+    
 #Cintillo 00    
     dbc.Row(
            [
                dbc.Col(html.H6(d2),           #Fecha de actualización
                width={'size' : "auto",
                       'offset' : 2}), 
-               dbc.Col(html.H6("Fuente: Datos abiertos de incidencia delictiva, SENSNSP"),
-                        width={'size': 5,  "offset":2 }),
             ]),
                
        html.Br(),
@@ -910,7 +932,14 @@ body = html.Div([
        html.Br(),
        html.Br(),
        html.Br(),
-    
+       html.Br(),
+       dbc.Row(
+           [
+               dbc.Col(html.P("Feminicidios (2015-2020)"),
+                        style={"margin-left": "90px", "font-size": 46, "text-align": "left"}),
+           ], justify= "start"),
+       html.Br(),
+       html.Br(),
 #cintillo 0
     
        dbc.Row(
@@ -927,7 +956,7 @@ body = html.Div([
        dbc.Row([
        dbc.Col(dbc.Button(([html.H5("2015", style={"font-size": 18,"color": "black","background-color": "white"}),
                             html.H1(conf_2015, style={"font-size": 64, "color": "black","background-color": "white"}),
-                            dbc.CardImg(src="https://github.com/fdealbam/feminicidios/blob/main/application/static/Mapa%20Feminicidio%20Total2015.jpeg?raw=true", 
+                            dbc.CardImg(src="https://github.com/fdealbam/feminicidios/blob/main/application/static/Mapa%20feminicidio%20Total2015.png?raw=true", 
                                         style={"background-color":"white"}),
                ]), style={"background-color":"white",
                          "box-shadow": "10px 20px 30px black",
@@ -937,7 +966,7 @@ body = html.Div([
     
        dbc.Col(dbc.Button(([html.H5("2016", style= {"font-size": 18,"color": "black","background-color": "white",}),
                             html.H1(conf_2016,style= {"font-size": 64, "color": "black","background-color": "white",}),
-                            dbc.CardImg(src="https://github.com/fdealbam/feminicidios/blob/main/application/static/Mapa%20Feminicidio%20Total2016.jpeg?raw=true",                               style= {"background-color": "white"}),
+                            dbc.CardImg(src="https://github.com/fdealbam/feminicidios/blob/main/application/static/Mapa%20feminicidio%20Total2016.png?raw=true",                               style= {"background-color": "white"}),
                ]),style={"background-color":"white",
                          "box-shadow": "10px 20px 30px black",
                         'width': '250px',
@@ -946,7 +975,7 @@ body = html.Div([
 
         dbc.Col(dbc.Button(([html.H5("2017", style= {"font-size": 18,"color": "black","background-color": "white",}),
                             html.H1(conf_2017,style= {"font-size": 64, "color": "black","background-color": "white",}),
-                            dbc.CardImg(src="https://github.com/fdealbam/feminicidios/blob/main/application/static/Mapa%20Feminicidio%20Total2017.jpeg?raw=true",                               style= {"background-color": "white"}),
+                            dbc.CardImg(src="https://github.com/fdealbam/feminicidios/blob/main/application/static/Mapa%20feminicidio%20Total2017.png?raw=true",                               style= {"background-color": "white"}),
                ]),style={"background-color":"white",
                          "box-shadow": "10px 20px 30px black",
                         'width': '250px',
@@ -955,7 +984,7 @@ body = html.Div([
 
        dbc.Col(dbc.Button(([html.H5("2018", style= {"font-size": 18,"color": "black","background-color": "white",}),
                             html.H1(conf_2018,style= {"font-size": 64, "color": "black","background-color": "white",}),
-                            dbc.CardImg(src="https://github.com/fdealbam/feminicidios/blob/main/application/static/Mapa%20Feminicidio%20Total2018.jpeg?raw=true",                               style= {"background-color": "white"}),
+                            dbc.CardImg(src="https://github.com/fdealbam/feminicidios/blob/main/application/static/Mapa%20feminicidio%20Total2018.png?raw=true",                               style= {"background-color": "white"}),
                ]),style={"background-color":"white",
                          "box-shadow": "10px 20px 30px black",
                         'width': '250px',
@@ -964,7 +993,7 @@ body = html.Div([
            
        dbc.Col(dbc.Button(([html.H5("2019", style= {"font-size": 18,"color": "black","background-color": "white",}),
                             html.H1(conf_2019,style= {"font-size": 64, "color": "black","background-color": "white",}),
-                            dbc.CardImg(src="https://github.com/fdealbam/feminicidios/blob/main/application/static/Mapa%20Feminicidio%20Total2019.jpeg?raw=true",                               style= {"background-color": "white"}),
+                            dbc.CardImg(src="https://github.com/fdealbam/feminicidios/blob/main/application/static/Mapa%20feminicidio%20Total2019.png?raw=true",                               style= {"background-color": "white"}),
                ]),style={"background-color":"white",
                          "box-shadow": "10px 20px 30px black",
                         'width': '250px',
@@ -972,27 +1001,26 @@ body = html.Div([
                         }, disabled=True)),
        dbc.Col(dbc.Button(([html.H5("2020", style= {"font-size": 18,"color": "black","background-color": "white",}),
                             html.H1(conf_2020,style= {"font-size": 64, "color": "red","background-color": "white",}),
-                            dbc.CardImg(src="https://github.com/fdealbam/feminicidios/blob/main/application/static/Mapa%20Feminicidio%20Total2020.jpeg?raw=true",                               style= {"background-color": "white"}),
+                            dbc.CardImg(src="https://github.com/fdealbam/feminicidios/blob/main/application/static/Mapa%20feminicidio%20Total2020.png?raw=true",                               style= {"background-color": "white"}),
                ]),style={"background-color":"white",
                          "box-shadow": "10px 20px 30px black",
                         'width': '250px',
                          #'margin-left': '-390px'
                         }, disabled=True)),
            
-    ],style={ "background-color": "white",
+    ],style={ "background-color": "lightgray",
               #"box-shadow": "10px 20px 30px black",
               'margin-left': '50px'}),
     
     
- 
-       html.Br(),
-    
-
     
        html.Br(),
-
        html.Br(),
-       html.Br(),
+       dbc.Row([
+               dbc.Col(html.P("Fuente: SENSNSP"),
+                        style={#"margin-left": "90px", 
+                               "font-size": 22, "text-align": "right", "margin-right":"50px"}),
+           ], justify= "right"),
        html.Br(),
        html.Br(),
        html.Br(),
@@ -1014,11 +1042,15 @@ body = html.Div([
    
     dbc.Row(
         [
-            dbc.Col(dcc.Graph(figure=graf_meses, config= "autosize")),
+            dbc.Col(dcc.Graph(figure=graf_meses, config= "autosize", style={"margin-left":"50px"})),
         ]),
        html.Br(),
        html.Br(),
-       html.Br(),
+       dbc.Row([
+               dbc.Col(html.P("Fuente: SENSNSP"),
+                        style={#"margin-left": "90px", 
+                               "font-size": 22, "text-align": "right", "margin-right":"50px"}),
+           ], justify= "right"),
        html.Br(),
        html.Br(),
        html.Br(),
@@ -1147,7 +1179,7 @@ html.Br(),
    
     dbc.Row(
         [
-            dbc.Col(dcc.Graph(figure=graf_totfem , config= "autosize")),
+            dbc.Col(dcc.Graph(figure=graf_totfem , config= "autosize", style={"margin-left":"50px"})),
                    #lg={'size': 5,  "offset": 0,}),
             
             dbc.Col(dcc.Graph(figure= graf_tasafem, config= "autosize")),
@@ -1179,39 +1211,156 @@ html.Br(),
        html.Br(),
        html.Br(),
 
-
-
-
        dbc.Row([
-        dbc.Col([dbc.Card(
-            dbc.CardBody([
-            html.H4("2015", className="card-title"),
-            html.P((f'{int(def15_tot):,}'),style={"font-size":"60px","color":"gray",}),
+       dbc.Col(dbc.Button(([html.H4("2015", style={"font-size": 18,"color": "black","background-color": "white"}),
+                            html.Br(),
+                            html.P((f'{int(def15_tot):,}'),style={"font-size":"60px","color":"gray",}),
+                            
+               ]), style={"background-color":"white",
+                         "box-shadow": "10px 20px 30px black",
+                         'margin-left': '10px',
+                        'width': '250px'
+                         }, disabled=True)),
+            dbc.Col(dbc.Button(([html.H4("2016", style={"font-size": 18,"color": "black","background-color": "white"}),
+                            html.Br(),
+                                 html.P((f'{int(def16_tot):,}'),style={"font-size":"60px","color":"gray",}),
+                            
+               ]), style={"background-color":"white",
+                         "box-shadow": "10px 20px 30px black",
+                         'margin-left': '10px',
+                        'width': '250px'
+                         }, disabled=True)),
+            dbc.Col(dbc.Button(([html.H4("2017", style={"font-size": 18,"color": "black","background-color": "white"}),
+                           html.Br(),
+                                 html.P((f'{int(def17_tot):,}'),style={"font-size":"60px","color":"gray",}),
+                            
+               ]), style={"background-color":"white",
+                         "box-shadow": "10px 20px 30px black",
+                         'margin-left': '10px',
+                        'width': '250px'
+                         }, disabled=True)),
+            dbc.Col(dbc.Button(([html.H4("2018", style={"font-size": 18,"color": "black","background-color": "white"}),
+                            html.Br(),
+                                 html.P((f'{int(def18_tot):,}'),style={"font-size":"60px","color":"gray",}),
+                            
+               ]), style={"background-color":"white",
+                         "box-shadow": "10px 20px 30px black",
+                         'margin-left': '10px',
+                        'width': '250px'
+                         }, disabled=True)),
+           
+            dbc.Col(dbc.Button(([html.H4("2019", style={"font-size": 18,"color": "black","background-color": "white"}),
+                            html.Br(),
+                                 html.P((f'{int(def19_tot):,}'),style={"font-size":"60px","color":"red",}),
+                            
+               ]), style={"background-color":"white",
+                         "box-shadow": "10px 20px 30px black",
+                         'margin-left': '10px',
+                        'width': '250px'
+                         }, disabled=True)),
+           
+       ]),
+html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Hr(),
+#     dbc.Row(
+#           [ dbc.Col(html.P("Mayor incidencia"),
+#                        style={"font-size": 40, "text-align": "left",
+#                               "margin-left": "50px"}),
+#           ]),
+    
+     dbc.Row(
+           [ dbc.Col(html.P("Entidades con más decesos femeninos según año"),
+                        style={"font-size": 42, "text-align": "left",
+                               "margin-left": "50px", "color":"red"}),
+           ]),
+      
+    dbc.Row([
+        dbc.Col([dbc.Button(([
+            html.P("2015", style={"text-align":"left",  "font-family": "Arial Black",   "font-size": 24,}),
+            html.H6([ (ent115_txt),": ", (ent115_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (ent215_txt),": ", (ent215_val),"%",],style={"text-align":"left", "font-size": 20,}),
+            html.H6([ (ent315_txt),": ", (ent315_val),"%",],style={"text-align":"left", "font-size": 20,}),
+            html.H6([ (ent415_txt),": ", (ent415_val),"%",],style={"text-align":"left", "font-size": 20,}),
+            html.H6([ (ent515_txt),": ", (ent515_val),"%",],style={"text-align":"left", "font-size": 20,}),
+        ]), disabled=True,)], style={"margin-left":"18px","width": "21em"}),
+        
+        dbc.Col([dbc.Button(([
+            html.H6("2016", style={"text-align":"left",  "font-family": "Arial Black",   "font-size": 24,}),
+            html.H6([ (ent116_txt),": ", (ent116_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (ent216_txt),": ", (ent216_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (ent316_txt),": ", (ent316_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (ent416_txt),": ", (ent416_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (ent516_txt),": ", (ent516_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+        ]), disabled=True,)], style={"margin-left":"-20px","width": "21em"}),
+        
+        dbc.Col([dbc.Button(([  
+            html.P("2017", style={"text-align":"left",  "font-family": "Arial Black",   "font-size": 24,}),
+            html.H6([ (ent117_txt),": ", (ent117_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (ent217_txt),": ", (ent217_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (ent317_txt),": ", (ent317_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (ent417_txt),": ", (ent417_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (ent517_txt),": ", (ent517_val),"%",],style={"text-align":"left",  "font-size": 20,}),                
+        ]), disabled=True,)], style={"margin-left":"-20px","width": "26em"}),
+
+        dbc.Col([dbc.Button(([    
+            html.P("2018", style={"text-align":"left",  "font-family": "Arial Black",   "font-size": 24,}),
+            html.H6([ (ent118_txt),": ", (ent118_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (ent218_txt),": ", (ent218_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (ent318_txt),": ", (ent318_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (ent418_txt),": ", (ent418_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (ent518_txt),": ", (ent518_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+        ]), disabled=True,)], style={"margin-left":"-40px","width": "26em"}),
+
+        dbc.Col([dbc.Button(([  
+            html.P("2019", style={"text-align":"left",  "font-family": "Arial Black",   "font-size": 24,}),
+            html.H6([ (ent119_txt),": ", (ent119_val),"%",],style={"text-align":"left",  "font-size": 20,"color":"red"}),
+            html.H6([ (ent219_txt),": ", (ent219_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (ent319_txt),": ", (ent319_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (ent419_txt),": ", (ent419_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (ent519_txt),": ", (ent519_val),"%",],style={"text-align":"left",  "font-size": 20,}),                
+        ]), disabled=True,)], style={"margin-left":"-40px","width": "26em"}),
+    ]),   
+               
+            
+     html.Br(),
+     dbc.Row(
+           [dbc.Col(html.P("Modus operandi"),
+                        style={"font-size": 42, "text-align": "left",
+                               "margin-left": "50px", "color":"red"}),
+           ]),
+    
+     html.Br(),
+     dbc.Col([dbc.Button(([  
+            html.P("2015", style={"text-align":"left",  "font-family": "Arial Black",   "font-size": 24,}),
+            html.P("Parentesco con agresor", style={"text-align":"left",  "font-size": 20,"color":"red"}), 
+            html.H6([ (agr15_txt),": ",       (agr15_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (agr215_txt),": ",     (agr215_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (agr315_txt),": ",     (agr315_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.P("¿Hubo violencia?", style={"text-align":"left",   "font-size": 20, "color":"red"}),  
+            html.H6([ (viofm215_txt),": ", (viofm215_val),"%",],style={"text-align":"left",  "font-size": 20,}),          
+            html.H6([ (viofm115_txt),": ", (viofm115_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.P("¿Dónde ocurrió? ", style={"text-align":"left",   "font-size": 20,"color":"red"}),
+            html.H6([ (lug115_txt),": ",     (lug115_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.H6([ (lug215_txt),": ",     (lug215_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+        ]), disabled=True,)], style={"margin-left":"14px","width": "28em"}),
+            
+   
+    
+    
+    
+     dbc.Row(
+           [       
+   
+            
+          dbc.Col([dbc.Card(
+            dbc.CardBody([   
+           
+            #html.H4("Modus Operandi", className="card-title"),
+                
             html.Hr(),
-            html.H4("Mayor incidencia", className="card-title"),
-            html.Hr(),
-            html.Code("¿Dónde ocurren más?"),
-            html.H6([ (ent115_txt),": ", (ent115_val),"%",]),
-            html.H6([ (ent215_txt),": ", (ent215_val),"%",]),
-            html.H6([ (ent315_txt),": ", (ent315_val),"%",]),
-            html.H6([ (ent415_txt),": ", (ent415_val),"%",]),
-            html.H6([ (ent515_txt),": ", (ent515_val),"%",]),                
-            html.Code("Área urbana "),
-            html.H6([ (aurb15_txt),": ", (aurb15_val),"%",]),
-            html.Hr(),
-            html.H4("Modus Operandi", className="card-title"),
-            html.Hr(),
-            html.Code("Parentesco con agresor", className="card-text"),
-            html.H6([ (agr15_txt),": ", (agr15_val),"%",]),
-            html.H6([ (agr215_txt),": ", (agr215_val),"%",]),
-            html.H6([ (agr315_txt),": ", (agr315_val),"%",]),
-            html.Code("¿Hubo violencia?", className="card-text"), 
-            html.H6([ (viofm215_txt),": ", (viofm215_val),"%",]),          
-            html.H6([ (viofm115_txt),": ", (viofm115_val),"%",]),
-            html.Code("¿Dónde ocurrió? "),
-            html.H6([ (lug115_txt),": ", (lug115_val),"%",]),
-            html.H6([ (lug215_txt),": ", (lug215_val),"%",]),
-            html.Hr(),
+                        html.Hr(),
             html.H4("Perfil de la víctima ", className="card-title"), 
             html.Hr(),
             html.Code("Estado civil"),
@@ -1234,10 +1383,7 @@ html.Br(),
             html.H6([ (esc215_txt),": ", (esc215_val),"%",]),
             html.H6([ (esc315_txt),": ", (esc315_val),"%",]),
             
-            #html.Code("Ocupación"),
-            #html.H6([ (ocu115_txt),": ", (ocu115_val),"%",]),
-            #html.H6([ (ocu215_txt),": ", (ocu215_val),"%",]),
-            #html.H6([ (ocu315_txt),": ", (ocu315_val),"%",]),
+     
 
 
           
@@ -1247,20 +1393,9 @@ html.Br(),
 ),]),
         dbc.Col([dbc.Card(
             dbc.CardBody([
-             html.H4("2016", className="card-title"),
-            html.P((f'{int(def16_tot):,}'),style={"font-size":"60px","color":"gray",}),
-            html.Hr(),
-            html.H4("Mayor incidencia", className="card-title"),
-            html.Hr(),
-            html.Code("¿Dónde ocurren más?"),
-            html.H6([ (ent116_txt),": ", (ent116_val),"%",]),
-            html.H6([ (ent216_txt),": ", (ent216_val),"%",]),
-            html.H6([ (ent316_txt),": ", (ent316_val),"%",]),
-            html.H6([ (ent416_txt),": ", (ent416_val),"%",]),
-            html.H6([ (ent516_txt),": ", (ent516_val),"%",]),                
-            html.Code("Área urbana "),
-            html.H6([ (aurb16_txt),": ", (aurb16_val),"%",]),
-            html.Hr(),
+           
+           
+         
             html.H4("Modus Operandi", className="card-title"),
             html.Hr(),
             html.Code("Parentesco con agresor", className="card-text"),
@@ -1274,6 +1409,7 @@ html.Br(),
             html.H6([ (lug116_txt),": ", (lug116_val),"%",]),
             html.H6([ (lug216_txt),": ", (lug216_val),"%",]),
             html.Hr(),
+                
             html.H4("Perfil de la víctima ", className="card-title"), 
             html.Hr(),
             html.Code("Estado civil"),
@@ -1295,11 +1431,7 @@ html.Br(),
             html.H6([ (esc116_txt),": ", (esc116_val),"%",]),
             html.H6([ (esc216_txt),": ", (esc216_val),"%",]),
             html.H6([ (esc316_txt),": ", (esc316_val),"%",]),
-            
-            #html.Code("Ocupación"),
-            #html.H6([ (ocu116_txt),": ", (ocu116_val),"%",]),
-            #html.H6([ (ocu216_txt),": ", (ocu216_val),"%",]),
-            #html.H6([ (ocu316_txt),": ", (ocu316_val),"%",]),
+     
 
         ]
     ),
@@ -1308,20 +1440,9 @@ html.Br(),
          dbc.Col([dbc.Card(
             dbc.CardBody([
             
-            html.H4("2017", className="card-title"),
-            html.P((f'{int(def17_tot):,}'),style={"font-size":"60px","color":"gray",}),
-            html.Hr(),
-            html.H4("Mayor incidencia", className="card-title"),
-            html.Hr(),
-            html.Code("¿Dónde ocurren más?"),
-            html.H6([ (ent117_txt),": ", (ent117_val),"%",]),
-            html.H6([ (ent217_txt),": ", (ent217_val),"%",]),
-            html.H6([ (ent317_txt),": ", (ent317_val),"%",]),
-            html.H6([ (ent417_txt),": ", (ent417_val),"%",]),
-            html.H6([ (ent517_txt),": ", (ent517_val),"%",]),                
-            html.Code("Área urbana "),
-            html.H6([ (aurb17_txt),": ", (aurb17_val),"%",]),
-            html.Hr(),
+            
+            
+            
             html.H4("Modus Operandi", className="card-title"),
             html.Hr(),
             html.Code("Parentesco con agresor", className="card-text"),
@@ -1357,10 +1478,7 @@ html.Br(),
             html.H6([ (esc217_txt),": ", (esc217_val),"%",]),
             html.H6([ (esc317_txt),": ", (esc317_val),"%",]),
             
-            #html.Code("Ocupación"),
-            #html.H6([ (ocu117_txt),": ", (ocu117_val),"%",]),
-            #html.H6([ (ocu217_txt),": ", (ocu217_val),"%",]),
-            #html.H6([ (ocu317_txt),": ", (ocu317_val),"%",]),
+        
  
         ]
     ),
@@ -1368,21 +1486,10 @@ html.Br(),
 ),]),
          dbc.Col([dbc.Card(
             dbc.CardBody([
-            html.H4("2018", className="card-title"),
-            html.P((f'{int(def18_tot):,}'),style={"font-size":"60px","color":"gray",}),
-            html.Hr(),
+        
          
-            html.H4("Mayor incidencia", className="card-title"),
-            html.Hr(),
-            html.Code("¿Dónde ocurren más?"),
-            html.H6([ (ent118_txt),": ", (ent118_val),"%",]),
-            html.H6([ (ent218_txt),": ", (ent218_val),"%",]),
-            html.H6([ (ent318_txt),": ", (ent318_val),"%",]),
-            html.H6([ (ent418_txt),": ", (ent418_val),"%",]),
-            html.H6([ (ent518_txt),": ", (ent518_val),"%",]),
-            html.Code("Área urbana "),
-            html.H6([ (aurb18_txt),": ", (aurb18_val),"%",]),
-            html.Hr(),
+            
+         
             html.H4("Modus Operandi", className="card-title"),
             html.Hr(),
             html.Code("Parentesco con agresor", className="card-text"),
@@ -1428,21 +1535,9 @@ html.Br(),
 ),]),
          dbc.Col([dbc.Card(
             dbc.CardBody([
-             html.H4("2019", className="card-title"),
-            html.P((f'{int(def19_tot):,}'),style={"font-size":"60px","color":"gray",}),
-            html.Hr(),
-           
-            html.H4("Mayor incidencia", className="card-title"),
-            html.Hr(),
-            html.Code("¿Dónde ocurren más?"),
-            html.H6([ (ent119_txt),": ", (ent119_val),"%",]),
-            html.H6([ (ent219_txt),": ", (ent219_val),"%",]),
-            html.H6([ (ent319_txt),": ", (ent319_val),"%",]),
-            html.H6([ (ent419_txt),": ", (ent419_val),"%",]),
-            html.H6([ (ent519_txt),": ", (ent519_val),"%",]),                
-            html.Code("Área urbana "),
-            html.H6([ (aurb19_txt),": ", (aurb19_val),"%",]),
-            html.Hr(),
+            
+            
+            
             html.H4("Modus Operandi", className="card-title"),
             html.Hr(),
             html.Code("Parentesco con agresor", className="card-text"),
@@ -1485,7 +1580,7 @@ html.Br(),
                         ]
     ),
     style={"width": "16rem"},
-),]),]),
+),]),], style={"margin-left": "10px"}),
        html.Br(),
        html.Br(),
        html.Br(),
@@ -1533,7 +1628,7 @@ html.Br(),
                     
             ], fluid=True,
         )
-    ], style= {"margin-left":"100px"},
+    ], style= {"margin-left":"50px"},
     fluid=True,
     ),    
     
@@ -1543,26 +1638,26 @@ html.Br(),
        
        html.Br(),
        html.Br(),
-       html.Br(),
+   html.Br(),
     
-
-    dbc.Row([
+   dbc.Row([
                                     #https://github.com/fdealbam/CamaraDiputados/blob/b11ef31e8e0f73e1a4a06ce60402563e1bd0122e/application/static/logocamara.jfif
-           dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/CamaraDiputados/blob/main/application/static/logocamara.jfif?raw=true"),
-                        width=4, lg={'size': 1,  "offset": 3, }),
+           dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/ce2cda9ccf7732861b8494b36562ebe9c8c642a6/application/static/logo%20cesopycamara.jpeg?raw=true"),
+                        width=5, md={'size': 2,  "offset": 1, }),
             
-           dbc.Col(html.H6(" S e c r e t a r í a   G e n e r a l," 
-                           " Secretaría de Servicios Parlamentarios, "
+           dbc.Col(html.H6(" Centro de Estudios Sociales y de Opinión Pública," 
+                           " Cámara de Diputados"
                            " México, 2021 "),
                   width={'size': 3, 'offset': 0}),
-
                ], justify="start",),
-    dbc.Row([    
-           dbc.Col(html.H5([dbc.Badge("Equipo responsable", 
+            
+     dbc.Row([    
+           dbc.Col(html.P([dbc.Badge("Equipo responsable", style={"font-size":20},
                           href="https://innovation-learning.herokuapp.com/",
                                      )]),
-                  width={'size': 3,  "offset": 4}),
+                  width={'size': 3,  "offset": 3}),
                        ], justify="start",),
+   
     html.Br(),
     html.Br(),
     html.Br(),
@@ -1577,7 +1672,8 @@ html.Br(),
 
 
 app.layout = html.Div([body],
-                              style={'width': '1800px'})
+                              style={'width': '1850px',
+                                    "background-color": "lightgray"})
 
                      
                      

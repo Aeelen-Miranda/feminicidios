@@ -1,4 +1,5 @@
 
+
 # feminicidios
 
 import dash
@@ -912,7 +913,8 @@ body = html.Div([
                #dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/CamaraDiputados/blob/main/application/static/logocamara.jfif?raw=true"),
                #         width={'size': 1,  "offset": 1}),
                dbc.Col(html.P("Feminicidios y decesos femeninos"),
-                        style={"font-size": 86, "text-align": "center"}),
+                        style={"font-size": 86, "text-align": "center",
+                              "text-shadow": "10px 20px 30px black",}),
            ], justify= "start"),
 
     
@@ -926,16 +928,42 @@ body = html.Div([
                
        html.Br(),
        html.Br(),
-       html.Br(),
-       html.Br(),
-       html.Br(),
-       html.Br(),
-       html.Br(),
+    
        dbc.Row(
+            [
+                #html.H4("Consideraciones generales "),
+                html.P(
+                    "Los feminicidios y los decesos femeninos son un problema aún irresuelto y son tema central de la " 
+                    "agenda legislativa, pero alcanzan relevancia central en la agenda seguridad nacional también. "
+                    "En este dashboard analítico sobre el problema, presentamos datos de esos dos fenómenos: en el caso de los " 
+                    "feminicidios, su gravedad se observa en los casos anuales y casos mensuales, así como la presentación de cuatro " 
+                    "entidades con más incidencias; finalmente, comparamos los rankings por entidad según sumas del periódo 2015 al 2021 "
+                    "con las tasas por entidad del mismo intervalo. " 
+                    "En cuanto a los decesos femeninos, se analizan las entidades de mayor incidencia por año, el modus operandi, el perfil de las víctimas "
+                    "y el perfil del agresor. "
+                    "Hoy existen cada vez mayor atención institucional a estos fenómeno y son fuerte preocupación de la sociedad, " 
+                    "esto último se evidencia en el hecho que todos seamos más vigilantes al respecto. "
+                    "No obstante, aún hace falta más acción social, sobretodo, más intervención institucional "
+                    "para diseñar estrategias efectivas de prevención y promover su denuncia. Es imperativo "
+                    "acabar con esta violencia de género. "
+                    "",
+                    style= {"font-size":22,})], 
+           
+        style= {"margin-left":"100px", "margin-right":"100px", "text-align":"justify"},
+       ),
+                
+       html.Br(),
+       html.Br(),
+       html.Br(),
+       html.Br(),
+       html.Br(),
+        dbc.Row(
            [
-               dbc.Col(html.P("Feminicidios (2015-2020)"),
-                        style={"margin-left": "90px", "font-size": 46, "text-align": "left"}),
+               dbc.Col(html.P("Evolución de la incidencia de feminicidios" ),
+                        style={"font-size": 56, "text-align": "left", "margin-left":"50px",
+                              "text-shadow": "10px 20px 30px black",}),
            ], justify= "start"),
+    
        html.Br(),
        html.Br(),
 #cintillo 0
@@ -1194,17 +1222,14 @@ html.Br(),
        html.Br(),
        html.Br(),
     
-    dbc.Row(
-    [
-        dbc.Col(html.H2([dbc.Alert("Perfil de Homicidios femeninos", color="primary",# className="alert-link",
-                                  className="alert-heading"),
-                        ]),width={'size': 12,  "offset":0 }),
-    ]),
-    dbc.Row(
-    [
-        dbc.Col(html.H6("Fuente: Datos de defunciones (2015-2019), Secretaría de Salud, DGIS, marzo 2021"),
-                        width={'size': 6,  "offset":6 }),
-     ], justify= "end"),
+        dbc.Row(
+           [
+               dbc.Col(html.P("Perfiles de los decesos femeninos"),
+                        style={"font-size": 56, "text-align": "left", "margin-left":"50px",
+                              "text-shadow": "10px 20px 30px black",}),
+           ], justify= "start"),
+    
+
     
        html.Br(),
        html.Br(),
@@ -1258,7 +1283,15 @@ html.Br(),
                          }, disabled=True)),
            
        ]),
-html.Br(),
+    html.Br(),
+    html.Br(),
+    dbc.Row(
+    [
+        dbc.Col(html.P("Fuente: Secretaría de Salud, DGIS, 2021",
+                        style={#"margin-left": "90px", 
+                               "font-size": 22, "text-align": "right", "margin-right":"100px"})),
+           ], justify= "right"),
+    
     html.Br(),
     html.Br(),
     html.Hr(),
@@ -1329,7 +1362,7 @@ html.Br(),
                                "margin-left": "50px", "color":"red"}),
            ]),
     
-     html.Br(),
+    html.Br(),
     dbc.Row(
            [
                dbc.Col([dbc.Button(([  
@@ -1338,9 +1371,11 @@ html.Br(),
             html.H6([ (agr15_txt),": ",       (agr15_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (agr215_txt),": ",     (agr215_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (agr315_txt),": ",     (agr315_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Hubo violencia?", style={"text-align":"left",   "font-size": 20, "color":"red"}),  
             html.H6([ (viofm215_txt),": ", (viofm215_val),"%",],style={"text-align":"left",  "font-size": 20,}),          
             html.H6([ (viofm115_txt),": ", (viofm115_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Dónde ocurrió? ", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (lug115_txt),": ",     (lug115_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (lug215_txt),": ",     (lug215_val),"%",],style={"text-align":"left",  "font-size": 20,}),
@@ -1352,13 +1387,16 @@ html.Br(),
             html.H6([ (agr16_txt),": ",       (agr16_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (agr216_txt),": ",     (agr216_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (agr316_txt),": ",     (agr316_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Hubo violencia?", style={"text-align":"left",   "font-size": 20, "color":"red"}),  
             html.H6([ (viofm216_txt),": ", (viofm216_val),"%",],style={"text-align":"left",  "font-size": 20,}),          
             html.H6([ (viofm116_txt),": ", (viofm116_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Dónde ocurrió? ", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (lug116_txt),": ",     (lug116_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (lug216_txt),": ",     (lug216_val),"%",],style={"text-align":"left",  "font-size": 20,}),
-        ]), disabled=True,)], style={"margin-left":"14px","width": "28em"}),
+        ]), disabled=True,)], style={#"margin-left":"14px",
+                                     "width": "28em"}),
                
             dbc.Col([dbc.Button(([  
             html.P("2017", style={"text-align":"left",  "font-family": "Arial Black",   "font-size": 24,}),
@@ -1366,13 +1404,16 @@ html.Br(),
             html.H6([ (agr17_txt),": ",       (agr17_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (agr217_txt),": ",     (agr217_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (agr317_txt),": ",     (agr317_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Hubo violencia?", style={"text-align":"left",   "font-size": 20, "color":"red"}),  
             html.H6([ (viofm217_txt),": ", (viofm217_val),"%",],style={"text-align":"left",  "font-size": 20,}),          
             html.H6([ (viofm117_txt),": ", (viofm117_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Dónde ocurrió? ", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (lug117_txt),": ",     (lug117_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (lug217_txt),": ",     (lug217_val),"%",],style={"text-align":"left",  "font-size": 20,}),
-        ]), disabled=True,)], style={"margin-left":"14px","width": "28em"}),
+        ]), disabled=True,)], style={#"margin-left":"14px",
+                                     "width": "28em"}),
    
     dbc.Col([dbc.Button(([  
             html.P("2018", style={"text-align":"left",  "font-family": "Arial Black",   "font-size": 24,}),
@@ -1380,13 +1421,16 @@ html.Br(),
             html.H6([ (agr18_txt),": ",       (agr18_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (agr218_txt),": ",     (agr218_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (agr318_txt),": ",     (agr318_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Hubo violencia?", style={"text-align":"left",   "font-size": 20, "color":"red"}),  
             html.H6([ (viofm218_txt),": ", (viofm218_val),"%",],style={"text-align":"left",  "font-size": 20,}),          
             html.H6([ (viofm118_txt),": ", (viofm118_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Dónde ocurrió? ", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (lug118_txt),": ",     (lug118_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (lug218_txt),": ",     (lug218_val),"%",],style={"text-align":"left",  "font-size": 20,}),
-        ]), disabled=True,)], style={"margin-left":"14px","width": "28em"}),
+        ]), disabled=True,)], style={#"margin-left":"-10px",
+                                     "width": "28em"}),
     
     dbc.Col([dbc.Button(([  
             html.P("2019", style={"text-align":"left",  "font-family": "Arial Black",   "font-size": 24,}),
@@ -1394,20 +1438,27 @@ html.Br(),
             html.H6([ (agr19_txt),": ",       (agr19_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (agr219_txt),": ",     (agr219_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (agr319_txt),": ",     (agr319_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Hubo violencia?", style={"text-align":"left",   "font-size": 20, "color":"red"}),  
             html.H6([ (viofm219_txt),": ", (viofm219_val),"%",],style={"text-align":"left",  "font-size": 20,}),          
             html.H6([ (viofm119_txt),": ", (viofm119_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Dónde ocurrió? ", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (lug119_txt),": ",     (lug119_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (lug219_txt),": ",     (lug219_val),"%",],style={"text-align":"left",  "font-size": 20,}),
-        ]), disabled=True,)], style={"margin-left":"14px","width": "28em"}),
+        ]), disabled=True,)], style={"margin-right":"20px",
+                                     "width": "28em"}),
            ]),
-####################################################               
+####################################################   
+    html.Br(),
+    
     dbc.Row(
            [dbc.Col(html.P("Perfil de la víctima"),
                         style={"font-size": 42, "text-align": "left",
                                "margin-left": "50px", "color":"red"}),
            ]),
+    html.Br(),
+    
 ####################################################               
 
     dbc.Row([
@@ -1418,16 +1469,19 @@ html.Br(),
             html.H6([ (civl215_txt),": ", (civl215_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (civl315_txt),": ", (civl315_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (civl415_txt),": ", (civl415_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Qué rangos de edad tenían?", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (eda115_txt),": ", (eda115_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda215_txt),": ", (eda215_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda315_txt),": ", (eda315_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda415_txt),": ", (eda415_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda515_txt),": ", (eda515_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Estaba embarazada?", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (emba315_txt),": ", (emba315_val),"%",],style={"text-align":"left",  "font-size": 20,}), 
             html.H6([ (emba215_txt),": ", (emba215_val),"%",],style={"text-align":"left",  "font-size": 20,}), 
             html.H6([ (emba115_txt),": ", (emba115_val),"%",],style={"text-align":"left",  "font-size": 20,}), 
+    html.Br(),
             html.P("Escolaridad", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (esc115_txt),": ", (esc115_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (esc215_txt),": ", (esc215_val),"%",],style={"text-align":"left",  "font-size": 20,}),
@@ -1441,21 +1495,26 @@ html.Br(),
             html.H6([ (civl216_txt),": ", (civl216_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (civl316_txt),": ", (civl316_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (civl416_txt),": ", (civl416_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Qué rangos de edad tenían?", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (eda116_txt),": ", (eda116_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda216_txt),": ", (eda216_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda316_txt),": ", (eda316_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda416_txt),": ", (eda416_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda516_txt),": ", (eda516_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.Br(),
+    html.Br(),
             html.P("¿Estaba embarazada?", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (emba316_txt),": ", (emba316_val),"%",],style={"text-align":"left",  "font-size": 20,}), 
             html.H6([ (emba216_txt),": ", (emba216_val),"%",],style={"text-align":"left",  "font-size": 20,}), 
             html.H6([ (emba116_txt),": ", (emba116_val),"%",],style={"text-align":"left",  "font-size": 20,}), 
+    html.Br(),
             html.P("Escolaridad", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (esc116_txt),": ", (esc116_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (esc216_txt),": ", (esc216_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (esc316_txt),": ", (esc316_val),"%",],style={"text-align":"left",  "font-size": 20,})
-        ]), disabled=True)],style={"margin-left":"14px","width": "28em"}),
+        ]), disabled=True)],style={#"margin-left":"14px",
+                                   "width": "28em"}),
         
         dbc.Col([dbc.Button(([
             html.P("2017", style={"text-align":"left",  "font-family": "Arial Black",   "font-size": 24,}),
@@ -1464,21 +1523,26 @@ html.Br(),
             html.H6([ (civl217_txt),": ", (civl217_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (civl317_txt),": ", (civl317_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (civl417_txt),": ", (civl417_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Qué rangos de edad tenían?", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (eda117_txt),": ", (eda117_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda217_txt),": ", (eda217_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda317_txt),": ", (eda317_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda417_txt),": ", (eda417_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda517_txt),": ", (eda517_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+            html.Br(),
+    html.Br(),
             html.P("¿Estaba embarazada?", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (emba317_txt),": ", (emba317_val),"%",],style={"text-align":"left",  "font-size": 20,}), 
             html.H6([ (emba217_txt),": ", (emba217_val),"%",],style={"text-align":"left",  "font-size": 20,}), 
             html.H6([ (emba117_txt),": ", (emba117_val),"%",],style={"text-align":"left",  "font-size": 20,}), 
+    html.Br(),
             html.P("Escolaridad", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (esc117_txt),": ", (esc117_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (esc217_txt),": ", (esc217_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (esc317_txt),": ", (esc317_val),"%",],style={"text-align":"left",  "font-size": 20,})
-        ]), disabled=True)],style={"margin-left":"14px","width": "28em"}),
+        ]), disabled=True)],style={#"margin-left":"14px",
+                                   "width": "28em"}),
     
         dbc.Col([dbc.Button(([
             html.P("2018", style={"text-align":"left",  "font-family": "Arial Black",   "font-size": 24,}),
@@ -1487,21 +1551,25 @@ html.Br(),
             html.H6([ (civl218_txt),": ", (civl218_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (civl318_txt),": ", (civl318_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (civl418_txt),": ", (civl418_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Qué rangos de edad tenían?", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (eda118_txt),": ", (eda118_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda218_txt),": ", (eda218_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda318_txt),": ", (eda318_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda418_txt),": ", (eda418_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda518_txt),": ", (eda518_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Estaba embarazada?", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (emba318_txt),": ", (emba318_val),"%",],style={"text-align":"left",  "font-size": 20,}), 
             html.H6([ (emba218_txt),": ", (emba218_val),"%",],style={"text-align":"left",  "font-size": 20,}), 
             html.H6([ (emba118_txt),": ", (emba118_val),"%",],style={"text-align":"left",  "font-size": 20,}), 
+    html.Br(),
             html.P("Escolaridad", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (esc118_txt),": ", (esc118_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (esc218_txt),": ", (esc218_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (esc318_txt),": ", (esc318_val),"%",],style={"text-align":"left",  "font-size": 20,})
-        ]), disabled=True)],style={"margin-left":"14px","width": "28em"}),
+        ]), disabled=True)],style={#"margin-left":"14px",
+                                   "width": "28em"}),
         
         dbc.Col([dbc.Button(([
             html.P("2019", style={"text-align":"left",  "font-family": "Arial Black",   "font-size": 24,}),
@@ -1510,254 +1578,28 @@ html.Br(),
             html.H6([ (civl219_txt),": ", (civl219_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (civl319_txt),": ", (civl319_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (civl419_txt),": ", (civl419_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
             html.P("¿Qué rangos de edad tenían?", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (eda119_txt),": ", (eda119_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda219_txt),": ", (eda219_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda319_txt),": ", (eda319_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda419_txt),": ", (eda419_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (eda519_txt),": ", (eda519_val),"%",],style={"text-align":"left",  "font-size": 20,}),
+    html.Br(),
+    html.Br(),            
             html.P("¿Estaba embarazada?", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (emba319_txt),": ", (emba319_val),"%",],style={"text-align":"left",  "font-size": 20,}), 
             html.H6([ (emba219_txt),": ", (emba219_val),"%",],style={"text-align":"left",  "font-size": 20,}), 
             html.H6([ (emba119_txt),": ", (emba119_val),"%",],style={"text-align":"left",  "font-size": 20,}), 
+    html.Br(),            
             html.P("Escolaridad", style={"text-align":"left",   "font-size": 20,"color":"red"}),
             html.H6([ (esc119_txt),": ", (esc119_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (esc219_txt),": ", (esc219_val),"%",],style={"text-align":"left",  "font-size": 20,}),
             html.H6([ (esc319_txt),": ", (esc319_val),"%",],style={"text-align":"left",  "font-size": 20,})
-        ]), disabled=True)],style={"margin-left":"14px","width": "28em"}),
+        ]), disabled=True)],style={"margin-right":"20px","width": "28em"}),
     ]),
     
-#     dbc.Row(
-#           [       
-#   
-#            
-#          dbc.Col([dbc.Card(
-#            dbc.CardBody([   
-#           
-#            #html.H4("Modus Operandi", className="card-title"),
-#                
-#            html.Hr(),
-#                        html.Hr(),
-#            html.H4("Perfil de la víctima ", className="card-title"), 
-#            html.Hr(),
-#            html.Code("Estado civil"),
-#            html.H6([ (civl115_txt),": ", (civl115_val),"%",]),
-#            html.H6([ (civl215_txt),": ", (civl215_val),"%",]),
-#            html.H6([ (civl315_txt),": ", (civl315_val),"%",]),
-#            html.H6([ (civl415_txt),": ", (civl415_val),"%",]),
-#            html.Code("¿Qué rangos de edad tenían?"),
-#            html.H6([ (eda115_txt),": ", (eda115_val),"%",]),
-#            html.H6([ (eda215_txt),": ", (eda215_val),"%",]),
-#            html.H6([ (eda315_txt),": ", (eda315_val),"%",]),
-#            html.H6([ (eda415_txt),": ", (eda415_val),"%",]),
-#            html.H6([ (eda515_txt),": ", (eda515_val),"%",]),
-#            html.Code("¿Estaba embarazada?"),
-#            html.H6([ (emba315_txt),": ", (emba315_val),"%",]), 
-#            html.H6([ (emba215_txt),": ", (emba215_val),"%",]), 
-#            html.H6([ (emba115_txt),": ", (emba115_val),"%",]), 
-#            html.Code("Escolaridad"),
-#            html.H6([ (esc115_txt),": ", (esc115_val),"%",]),
-#            html.H6([ (esc215_txt),": ", (esc215_val),"%",]),
-#            html.H6([ (esc315_txt),": ", (esc315_val),"%",]),
-            
-     
 
-
-          
-#        ]
-#    ),
-#    ,style={"width": "16rem"},
-#),]),
-#        dbc.Col([dbc.Card(
-#            dbc.CardBody([
-#           
-#           
-#         
-#            html.H4("Modus Operandi", className="card-title"),
-#            html.Hr(),
-#            html.Code("Parentesco con agresor", className="card-text"),
-#            html.H6([ (agr16_txt),": ", (agr16_val),"%",]),
-#            html.H6([ (agr216_txt),": ", (agr216_val),"%",]),
-#            html.H6([ (agr316_txt),": ", (agr316_val),"%",]),
-#            html.Code("¿Hubo violencia?", className="card-text"), 
-#            html.H6([ (viofm216_txt),": ", (viofm216_val),"%",]),
-#            html.H6([ (viofm116_txt),": ", (viofm116_val),"%",]),                
-#            html.Code("¿Dónde ocurrió? "),
-#            html.H6([ (lug116_txt),": ", (lug116_val),"%",]),
-#            html.H6([ (lug216_txt),": ", (lug216_val),"%",]),
-#            html.Hr(),
-                
-#            html.H4("Perfil de la víctima ", className="card-title"), 
-#            html.Hr(),
-#            html.Code("Estado civil"),
-#            html.H6([ (civl116_txt),": ", (civl116_val),"%",]),
-#            html.H6([ (civl216_txt),": ", (civl216_val),"%",]),
-#            html.H6([ (civl316_txt),": ", (civl316_val),"%",]),
-#            html.H6([ (civl416_txt),": ", (civl416_val),"%",]),
-#            html.Code("¿Qué rangos de edad tenían?"),
-#            html.H6([ (eda116_txt),": ", (eda116_val),"%",]),
-#            html.H6([ (eda216_txt),": ", (eda216_val),"%",]),
-#            html.H6([ (eda316_txt),": ", (eda316_val),"%",]),
-#            html.H6([ (eda416_txt),": ", (eda416_val),"%",]),
-#            html.H6([ (eda516_txt),": ", (eda516_val),"%",]),
-#            html.Code("¿Estaba embarazada?"),
-#            html.H6([ (emba316_txt),": ", (emba316_val),"%",]), 
-#            html.H6([ (emba216_txt),": ", (emba216_val),"%",]), 
-#            html.H6([ (emba116_txt),": ", (emba116_val),"%",]), 
-#            html.Code("Escolaridad"),
-#            html.H6([ (esc116_txt),": ", (esc116_val),"%",]),
-#            html.H6([ (esc216_txt),": ", (esc216_val),"%",]),
-#            html.H6([ (esc316_txt),": ", (esc316_val),"%",]),
-#     
-#
-#        ]
-#    ),
-#    style={"width": "16rem"},
-#),]),
-#         dbc.Col([dbc.Card(
-#            dbc.CardBody([
-#            
-#            
-#            
-#            
-#            html.H4("Modus Operandi", className="card-title"),
-#            html.Hr(),
-#            html.Code("Parentesco con agresor", className="card-text"),
-#            html.H6([ (agr17_txt),": ", (agr17_val),"%",]),
-#            html.H6([ (agr217_txt),": ", (agr217_val),"%",]),
-#            html.H6([ (agr317_txt),": ", (agr317_val),"%",]),
-#            html.Code("¿Hubo violencia?", className="card-text"), 
-#            html.H6([ (viofm217_txt),": ", (viofm217_val),"%",]),
-#            html.H6([ (viofm117_txt),": ", (viofm117_val),"%",]),                
-#            html.Code("¿Dónde ocurrió? "),
-#            html.H6([ (lug117_txt),": ", (lug117_val),"%",]),
-#            html.H6([ (lug217_txt),": ", (lug217_val),"%",]),
-#            html.Hr(),
-#            html.H4("Perfil de la víctima ", className="card-title"), 
-#            html.Hr(),
-#            html.Code("Estado civil"),
-#            html.H6([ (civl117_txt),": ", (civl117_val),"%",]),
-#            html.H6([ (civl217_txt),": ", (civl217_val),"%",]),
-#            html.H6([ (civl317_txt),": ", (civl317_val),"%",]),
-#            html.H6([ (civl417_txt),": ", (civl417_val),"%",]),
-#            html.Code("¿Qué rangos de edad tenían?"),
-#            html.H6([ (eda117_txt),": ", (eda117_val),"%",]),
-#            html.H6([ (eda217_txt),": ", (eda217_val),"%",]),
-#            html.H6([ (eda317_txt),": ", (eda317_val),"%",]),
-#            html.H6([ (eda417_txt),": ", (eda417_val),"%",]),
-#            html.H6([ (eda517_txt),": ", (eda517_val),"%",]),
-#            html.Code("¿Estaba embarazada?"),
-#            html.H6([ (emba317_txt),": ", (emba317_val),"%",]), 
-#            html.H6([ (emba217_txt),": ", (emba217_val),"%",]), 
-#            html.H6([ (emba117_txt),": ", (emba117_val),"%",]),
-#            html.Code("Escolaridad"),
-#            html.H6([ (esc117_txt),": ", (esc117_val),"%",]),
-#            html.H6([ (esc217_txt),": ", (esc217_val),"%",]),
-#            html.H6([ (esc317_txt),": ", (esc317_val),"%",]),
-#            
-#        
-# 
-#        ]
-#    ),
-#    style={"width": "16rem"},
-#),]),
-#         dbc.Col([dbc.Card(
-#            dbc.CardBody([
-        
-         
-            
-         
-#            html.H4("Modus Operandi", className="card-title"),
-#            html.Hr(),
-#            html.Code("Parentesco con agresor", className="card-text"),
-#            html.H6([ (agr18_txt),": ", (agr18_val),"%",]),
-#            html.H6([ (agr218_txt),": ", (agr218_val),"%",]),
-#            html.H6([ (agr318_txt),": ", (agr318_val),"%",]),
-#            html.Code("¿Hubo violencia?", className="card-text"), 
-#            html.H6([ (viofm218_txt),": ", (viofm218_val),"%",]),
-#            html.H6([ (viofm118_txt),": ", (viofm118_val),"%",]),
-#            html.Code("¿Dónde ocurrió? "),
-#            html.H6([ (lug118_txt),": ", (lug118_val),"%",]),
-#            html.H6([ (lug218_txt),": ", (lug218_val),"%",]),
-#            html.Hr(),
-#            html.H4("Perfil de la víctima ", className="card-title"), 
-#            html.Hr(),
-#            html.Code("Estado civil"),
-#            html.H6([ (civl118_txt),": ", (civl118_val),"%",]),
-#            html.H6([ (civl218_txt),": ", (civl218_val),"%",]),
-#            html.H6([ (civl318_txt),": ", (civl318_val),"%",]),
-#            html.H6([ (civl418_txt),": ", (civl418_val),"%",]),
-#            html.Code("¿Qué rangos de edad tenían?"),
-#            html.H6([ (eda118_txt),": ", (eda118_val),"%",]),
-#            html.H6([ (eda218_txt),": ", (eda218_val),"%",]),
-#            html.H6([ (eda318_txt),": ", (eda318_val),"%",]),
-#            html.H6([ (eda418_txt),": ", (eda418_val),"%",]),
-#            html.H6([ (eda518_txt),": ", (eda518_val),"%",]),
-#            html.Code("¿Estaba embarazada?"),
-#            html.H6([ (emba318_txt),": ", (emba318_val),"%",]), 
-#            html.H6([ (emba218_txt),": ", (emba218_val),"%",]), 
-#            html.H6([ (emba118_txt),": ", (emba118_val),"%",]), 
-#            html.Code("Escolaridad"),
-#            html.H6([ (esc118_txt),": ", (esc118_val),"%",]),
-#            html.H6([ (esc218_txt),": ", (esc218_val),"%",]),
-#            html.H6([ (esc318_txt),": ", (esc318_val),"%",]),
-#              
-#            #html.Code("Ocupación"),
-#            #html.H6([ (ocu118_txt),": ", (ocu118_val),"%",]),
-#            #html.H6([ (ocu218_txt),": ", (ocu218_val),"%",]),
-#            #html.H6([ (ocu318_txt),": ", (ocu318_val),"%",]),
-#                        ]
-#    ),
-#    style={"width": "16rem"},
-#),]),
-#         dbc.Col([dbc.Card(
-#            dbc.CardBody([
-#            
-            
-            
-#            html.H4("Modus Operandi", className="card-title"),
-#            html.Hr(),
-#            html.Code("Parentesco con agresor", className="card-text"),
-#            html.H6([ (agr19_txt),": ", (agr19_val),"%",]),
-#            html.H6([ (agr219_txt),": ", (agr219_val),"%",]),
-#            html.H6([ (agr319_txt),": ", (agr319_val),"%",]),
-#            html.Code("¿Hubo violencia?", className="card-text"), 
-#            html.H6([ (viofm219_txt),": ", (viofm219_val),"%",]),
-#            html.H6([ (viofm119_txt),": ", (viofm119_val),"%",]),                
-#            html.Code("¿Dónde ocurrió? "),
-#            html.H6([ (lug119_txt),": ", (lug119_val),"%",]),
-#            html.H6([ (lug219_txt),": ", (lug219_val),"%",]),
-#            html.Hr(),
-#            html.H4("Perfil de la víctima ", className="card-title"), 
-#            html.Hr(),
-#            html.Code("Estado civil"),
-#            html.H6([ (civl119_txt),": ", (civl119_val),"%",]),
-#            html.H6([ (civl219_txt),": ", (civl219_val),"%",]),
-#            html.H6([ (civl319_txt),": ", (civl319_val),"%",]),
-#            html.H6([ (civl419_txt),": ", (civl419_val),"%",]),
-#            html.Code("¿Qué rangos de edad tenían?"),
-#            html.H6([ (eda119_txt),": ", (eda119_val),"%",]),
-#            html.H6([ (eda219_txt),": ", (eda219_val),"%",]),
-#            html.H6([ (eda319_txt),": ", (eda319_val),"%",]),
-#            html.H6([ (eda419_txt),": ", (eda419_val),"%",]),
-#            html.H6([ (eda519_txt),": ", (eda519_val),"%",]),
-#            html.Code("¿Estaba embarazada?"),
-#            html.H6([ (emba319_txt),": ", (emba319_val),"%",]), 
-#            html.H6([ (emba219_txt),": ", (emba219_val),"%",]), 
-#            html.H6([ (emba119_txt),": ", (emba119_val),"%",]), 
-#            html.Code("Escolaridad"),
-#            html.H6([ (esc119_txt),": ", (esc119_val),"%",]),
-#            html.H6([ (esc219_txt),": ", (esc219_val),"%",]),
-#            html.H6([ (esc319_txt),": ", (esc319_val),"%",]),
-#            #html.Code("Ocupación"),
-#            #html.H6([ (ocu119_txt),": ", (ocu119_val),"%",]),
-#            #html.H6([ (ocu219_txt),": ", (ocu219_val),"%",]),
-#            #html.H6([ (ocu319_txt),": ", (ocu319_val),"%",]),
-# 
-#                        ]
-#    ),
-#    style={"width": "16rem"},
-#),]),], style={"margin-left": "10px"}),
        html.Br(),
        html.Br(),
        html.Br(),
@@ -1767,57 +1609,38 @@ html.Br(),
 
 # nuevo
     
-    dbc.Jumbotron(
-    [
-        dbc.Container(
-            [
-                html.H4("Consideraciones generales "),
+    #dbc.Jumbotron(
+    #[
+        dbc.Row([
+
+                html.Br(),
+                html.H4("Metodología "),
                 html.P(
-                    "Los feminicidios son un problema aún irresuelto y son tema central de la " 
-                    "agenda de seguridad nacional. Su gravedad se observa "
-                    "en los registros anuales y registros mensuales, que se presentan al "
-                    "inicio de esta visualización. Además, completamos este análisis con "
-                    "un perfil de homicidios femeninos según año."
-                    "Existe cada vez mayor atención institucional al fenómeno y fuerte preocupación de la sociedad, " 
-                    "esto último se evidencia en el hecho que todos seamos más vigilantes al respecto. "
-                    "No obstante, aún hace falta más acción social, sobretodo, más intervención institucional "
-                    "para diseñar estrategias efectivas de prevención y promover su denuncia. Es imperante "
-                    "acabar con esta violencia de género. "
-                    "El presente dashboard (tablero de datos) es un ejercicio institucional con el objeto de "
-                    "informar a la sociedad. La información proviene, primero, del Secretariado Ejecutivo Nacional del Sistema Nacional de "
+                    "El presente dashboard  es un ejercicio institucional con el objeto de "
+                    "informar a los diputados y diputados y público interesado. "
+                    "Como se indica en cada caso. la información proviene, primero, del Secretariado Ejecutivo Nacional del Sistema Nacional de "
                     "Seguridad Pública (SENSNSP) (2015-2021); segundo, de la Secretaría de Salud y su base de datos sobre defunciones anuales (2015-2019). "
                     "Ademas, esta dashboard seguramente puede ser completado con otras fuentes de información "
                     "gubernamental y por toda aquella información proveniente de organizaciones civiles que " 
                     "dan seguimiento al tema. En ningún caso, este contenido representa algún "
                     "posicionamiento partidista, personal o institucional, mucho menos opinión o postura alguna "
-                    "sobre el fenómeno. ",
-                    className="lead"),
-                html.Br(),
-                html.H5("Metodología "),
-                html.P(
+                    "sobre el fenómeno." 
                     "Esta información fue tratada con el lenguaje de programación Python y varias de las librerías "
                     "más comunes (Dash, Choropleth, Pandas, Numpy, Geopandas, etc.), que nos ayudan a automatizar "
                     "la recurrencia (request) a la fuente de información y las operaciones necesarias para creargraficas "
                     "interactivas y mapas presentados. El volumen de información fue de 230 megabytes de la base de datos "
                     "del SENSNSP y 2.4 gigabytes de la base de datos de defunciones, provista por la Secretaría de Salud, "
                     "Dirección General de Información de Salud. ",
-                    className="lead"),
-                    
-            ], fluid=True,
-        )
-    ], style= {"margin-left":"50px"},
-    fluid=True,
-    ),    
-    
-        
-    
-       
-       
-       html.Br(),
-       html.Br(),
-   html.Br(),
-    
-   dbc.Row([
+                    style= {"font-size":22,})], 
+           
+        style= {"margin-left":"100px", "margin-right":"100px", "text-align":"justify"},
+       ),
+
+                html.Br(),
+                html.Br(),
+                html.Br(),
+                
+                dbc.Row([
                                     #https://github.com/fdealbam/CamaraDiputados/blob/b11ef31e8e0f73e1a4a06ce60402563e1bd0122e/application/static/logocamara.jfif
            dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/ce2cda9ccf7732861b8494b36562ebe9c8c642a6/application/static/logo%20cesopycamara.jpeg?raw=true"),
                         width=5, md={'size': 2,  "offset": 1, }),
@@ -1860,5 +1683,4 @@ app.layout = html.Div([body],
 
 if __name__ == "__main__":
     app.run_server()
-    
     

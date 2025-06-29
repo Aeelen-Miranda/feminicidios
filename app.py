@@ -359,6 +359,7 @@ tabtitle='Feminicidios'
 sourceurl='https://www.gob.mx/sesnsp/acciones-y-programas/datos-abiertos-de-incidencia-delictiva?state=published'
 
 
+
 server = flask.Flask(__name__)
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes. LUX], server=server)
 
@@ -606,4 +607,4 @@ from application.dash import app
 from settings import config
 
 if __name__ == "__main__":
-    app.run_server()
+    app.run_server(debug=True)

@@ -4,5 +4,5 @@ services:
     name: feminicidios
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:server
+    startCommand: python app.py
     pythonVersion: 3.10.13
